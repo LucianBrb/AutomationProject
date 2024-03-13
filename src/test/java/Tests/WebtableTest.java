@@ -1,6 +1,8 @@
 package Tests;
 
 import HelperMethods.ElementMethods;
+import Pages.ElementsPage;
+import Pages.HomePage;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -14,21 +16,14 @@ public class WebtableTest extends SharedData {
 
     @Test
     public void metodaTest(){
-        ElementMethods elementMethods = new ElementMethods(getWebDriver());
+
+        HomePage homePage = new HomePage(getWebDriver());
+        homePage.navigateToElementsPage();
+
+        ElementMethods elementPage = new ElementsPage(getWebDriver());
+        elementPage.
 
 
-        //facem un scroll la pagina
-        JavascriptExecutor js = (JavascriptExecutor) getWebDriver();
-        js.executeScript("window.scrollBy(0,490)", "");
-
-        //identificam un element(ex buton)
-        WebElement consentField=getWebDriver().findElement(By.className("fc-button-label"));
-        consentField.click();
-
-        WebElement elementsField=getWebDriver().findElement(By.xpath("//h5[text()='Elements']"));
-        elementsField.click();
-
-        js.executeScript("window.scrollBy(0,450)", "");
 
         WebElement webTablesField=getWebDriver().findElement(By.xpath("//span[text()='Web Tables']"));
         webTablesField.click();
