@@ -2,6 +2,9 @@ package Tests;
 
 import HelperMethods.ElementMethods;
 import HelperMethods.WindowMethods;
+import Pages.AlertWindowFramePage;
+import Pages.HomePage;
+import Pages.WindowPage;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,41 +20,15 @@ public class WindowTest extends SharedData {
 
     @Test
     public void windowMethod() {
-        ElementMethods elementMethods = new ElementMethods(getWebDriver());
-        WindowMethods windowMethods = new WindowMethods(getWebDriver());
 
-        elementMethods.scrollElementByPixel(0, 450);
+        HomePage homePage = new HomePage(getWebDriver());
+        homePage.navigateToAlertFrameWindowPage();
 
+        AlertWindowFramePage alertWindowFramePage = new AlertWindowFramePage(getWebDriver());
+        alertWindowFramePage.navigateToWindowPage();
 
-        WebElement consentField = getWebDriver().findElement(By.className("fc-button-label"));
-        elementMethods.clickElement(consentField);
-
-        WebElement windowField = getWebDriver().findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-        elementMethods.clickElement(windowField);
-
-        elementMethods.scrollElementByPixel(0,450);
-
-        WebElement browserWindowField = getWebDriver().findElement(By.xpath("//span[text()='Browser Windows']"));
-        elementMethods.clickElement(browserWindowField);
-
-        WebElement newTabButton = getWebDriver().findElement(By.id("tabButton"));
-        elementMethods.clickElement(newTabButton);
-
-        //trebuie sa identificam numarul de taburi deschise
-        windowMethods.switchSpecificTabWindow(1);
-
-        //inchidem tabul curent = close
-        //inchidem browserul    = quit
-        windowMethods.closeCurentTabWindow();
-        windowMethods.switchSpecificTabWindow(0);
-
-
-        WebElement newWindowButton = getWebDriver().findElement(By.id("windowButton"));
-        elementMethods.clickElement(newWindowButton);
-        windowMethods.switchSpecificTabWindow(1);
-        windowMethods.closeCurentTabWindow();
-        windowMethods.switchSpecificTabWindow(0);
-
+        WindowPage windowPage = new WindowPage(getWebDriver());
+        windowPage.interactWithTabBrowser();
+        windowPage.interactNewWindow();
     }
-
 }

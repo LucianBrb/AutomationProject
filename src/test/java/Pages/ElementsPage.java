@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ElementsPage extends BasePage{
-
     public ElementsPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -13,7 +12,7 @@ public class ElementsPage extends BasePage{
     @FindBy(xpath = "//span[text()='Web Tables']")
     private WebElement webTablesField;
 
-    public void naviateToWebTablePage (){
+    public void navigateToWebTablePage(){
         webTablesField.click();
     }
 }
