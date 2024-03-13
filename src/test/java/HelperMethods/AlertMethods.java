@@ -36,5 +36,6 @@ public class AlertMethods {
         Alert forthAlert = webDriver.switchTo().alert();
         forthAlert.sendKeys(value);
         forthAlert.accept();
+
     }
 }
