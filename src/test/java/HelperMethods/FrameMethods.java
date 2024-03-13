@@ -14,7 +14,7 @@ public class FrameMethods {
         webDriver.switchTo().frame(value);
     }
 
-    public void switchParentFrame () {
+    public void switchToParentFrame () {
         webDriver.switchTo().parentFrame();
     }
 }
