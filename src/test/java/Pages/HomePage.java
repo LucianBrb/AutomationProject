@@ -21,7 +21,6 @@ public class HomePage extends BasePage {
     private WebElement formsField;
 
 
-
     public void navigateToAlertFrameWindowPage(){
         elementMethods.scrollElementByPixel(0,450);
         //  elementMethods.clickElement(consentField);
