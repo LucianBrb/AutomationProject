@@ -25,6 +25,8 @@ public class AlertPage extends BasePage {
         elementMethods.clickElement(clickMeBtn2);
         // wait explicit
         alertMethods.acceptAlert();
+        elementMethods.clickElement(clickMeBtn3);
+        alertMethods.acceptAlert();
     }
     public void dealWithPromptBtn(String text){
         elementMethods.clickElement(promptAlert);

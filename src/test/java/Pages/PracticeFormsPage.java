@@ -9,7 +9,7 @@ import org.testng.Assert;
 import java.util.List;
 import java.io.File;
 
-public class PracticeFormsPage extends  BasePage{
+public class PracticeFormsPage extends BasePage {
     public PracticeFormsPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -56,80 +56,81 @@ public class PracticeFormsPage extends  BasePage{
     private List<WebElement> valuesFields;
 
 
-    public void fillFirstName(String firstNameFieldValue){
+    public void fillFirstName(String firstNameFieldValue) {
         elementMethods.fillElement(firstNameField, firstNameFieldValue);
         elementMethods.scrollElementByPixel(0, 450);
     }
 
-    public void fillLastName(String lastNameFieldValue){
+    public void fillLastName(String lastNameFieldValue) {
         elementMethods.fillElement(lastNameField, lastNameFieldValue);
     }
 
-    public void fillEmailField(String emailFieldValue){
+    public void fillEmailField(String emailFieldValue) {
         elementMethods.fillElement(emailField, emailFieldValue);
     }
 
-    public void fillMobileNoField(String mobileNoFieldValue){
+    public void fillMobileNoField(String mobileNoFieldValue) {
         elementMethods.fillElement(mobileNoField, mobileNoFieldValue);
     }
 
-    public void pickBirthDate(String dobMonthValue, String yearValue, String dayValue){
+    public void pickBirthDate(String dobMonthValue, String yearValue, String dayValue) {
         elementMethods.clickElement(dobField);
-        elementMethods.selectTextElement(dobMonth,dobMonthValue);
+        elementMethods.selectTextElement(dobMonth, dobMonthValue);
         elementMethods.selectValueElement(yearField, yearValue);
 
-        for (Integer i = 0; i < dayDOBFields.size(); i++){
-            if (dayDOBFields.get(i).getText().equals(dayValue)){
+        for (Integer i = 0; i < dayDOBFields.size(); i++) {
+            if (dayDOBFields.get(i).getText().equals(dayValue)) {
                 dayDOBFields.get(i).click();
                 break;
             }
         }
     }
 
-    public void pickGender(String genderValue){
+    public void pickGender(String genderValue) {
         userGender.click();
     }
 
-    public void pickHobbies(List<String> hobbies){
-        for (Integer i = 0; i < hobbiesList.size(); i++){
+    public void pickHobbies(List<String> hobbies) {
+        for (Integer i = 0; i < hobbiesList.size(); i++) {
             String currentElementText = hobbiesList.get(i).getText();
-            if (hobbies.contains(currentElementText)){
+            if (hobbies.contains(currentElementText)) {
                 //hobbiesList.get(i).click();
                 elementMethods.clickElemForce(hobbiesList.get(i));
             }
         }
     }
 
-    public void pickSubjects(String userSubjectsValue){
-        elementMethods.fillPressElement(userSubjects,userSubjectsValue, Keys.ENTER);
+    public void pickSubjects(String userSubjectsValue) {
+        elementMethods.fillPressElement(userSubjects, userSubjectsValue, Keys.ENTER);
     }
 
-    public void uploadPicture(String filePath){
-        elementMethods.fillElement(uploadPicture,new File(filePath).getAbsolutePath());
+    public void uploadPicture(String filePath) {
+        elementMethods.fillElement(uploadPicture, new File(filePath).getAbsolutePath());
     }
 
-    public void pickAddress(String addressValue){
+    public void pickAddress(String addressValue) {
         elementMethods.fillElement(adress, addressValue);
     }
 
-    public void pickState(String stateLoc){
+    public void pickState(String stateLoc) {
         elementMethods.clickElemForce(selectState);
-        elementMethods.fillPressElement(selectState2,stateLoc,Keys.ENTER);
-    }
-    public void pickCity(String cityLoc){
-        elementMethods.clickElemForce(selectCity);
-        elementMethods.fillPressElement(selectState2,cityLoc,Keys.ENTER);
+        elementMethods.fillPressElement(selectState2, stateLoc, Keys.ENTER);
     }
 
-    public void clickSubmit (){
+    public void pickCity(String cityLoc) {
+        elementMethods.clickElemForce(selectCity);
+        elementMethods.fillPressElement(selectCity2, cityLoc, Keys.ENTER);
+    }
+
+    public void clickSubmit() {
         elementMethods.clickElemForce(submit);
     }
 
-    public void validatePracticeFormTable (String firstNameFieldValue, String lastNameFieldValue, String emailFieldValue,String genderValue, String mobileNoFieldValue,
-                                           String subjectValue, String adressValue, String stateLoc, String cityLoc, List<String> hobbies, String filePath ){
+    public void validatePracticeFormTable(String firstNameFieldValue, String lastNameFieldValue, String emailFieldValue, String genderValue, String mobileNoFieldValue,
+                                          String subjectValue, List<String> hobbies, String filePath, String adressValue, String stateLoc, String cityLoc) {
 
-        Assert.assertEquals(labelFields.get(0).getText(),"Student Name");
-        Assert.assertEquals(valuesFields.get(0).getText(),firstNameFieldValue + " " + lastNameFieldValue);
+        Assert.assertEquals(labelFields.get(0).getText(), "Student Name");
+        Assert.assertEquals(valuesFields.get(0).getText(), firstNameFieldValue + " " + lastNameFieldValue);
 
         Assert.assertEquals(labelFields.get(1).getText(), "Student Email");
         Assert.assertEquals(valuesFields.get(1).getText(), emailFieldValue);
@@ -141,7 +142,7 @@ public class PracticeFormsPage extends  BasePage{
         Assert.assertEquals(valuesFields.get(3).getText(), mobileNoFieldValue);
 
         Assert.assertEquals(labelFields.get(4).getText(), "Date of Birth");
-       // Assert.assertEquals(valuesFields.get(4).getText(), );       ///de fixat
+        // Assert.assertEquals(valuesFields.get(4).getText(), dobField );
 
         Assert.assertEquals(labelFields.get(5).getText(), "Subjects");
         Assert.assertEquals(valuesFields.get(5).getText(), subjectValue);
@@ -153,8 +154,8 @@ public class PracticeFormsPage extends  BasePage{
 
         Assert.assertEquals(labelFields.get(7).getText(), "Picture");
         String[] arrayFile = filePath.split("/");
-        Integer desiredIndex = arrayFile.length -1;
-        Assert.assertEquals(valuesFields.get(7).getText(),arrayFile[desiredIndex]);
+        Integer desiredIndex = arrayFile.length - 1;
+        Assert.assertEquals(valuesFields.get(7).getText(), arrayFile[desiredIndex]);
 
         // TEMA: de continuat validarile
 
@@ -164,5 +165,23 @@ public class PracticeFormsPage extends  BasePage{
         Assert.assertEquals(labelFields.get(9).getText(), "State and City");
         Assert.assertEquals(valuesFields.get(9).getText(), stateLoc + " " + cityLoc);
 
+    }
+
+    public void fillEntireForm(String firstNameFieldValue, String lastNameFieldValue, String emailFieldValue, String mobileNoFieldValue, String dobMonthValue,
+                               String yearValue, String dayValue, String genderValue, List<String> hobbies, String userSubjectsValue, String filePath, String addressValue,
+                               String stateLoc, String cityLoc) {
+        fillFirstName(firstNameFieldValue);
+        fillLastName(lastNameFieldValue);
+        fillEmailField(emailFieldValue);
+        fillMobileNoField(mobileNoFieldValue);
+        pickBirthDate(dobMonthValue, yearValue, dayValue);
+        pickGender(genderValue);
+        pickHobbies(hobbies);
+        pickSubjects(userSubjectsValue);
+        uploadPicture(filePath);
+        pickAddress(addressValue);
+        pickState(stateLoc);
+        pickCity(cityLoc);
+        clickSubmit();
     }
 }

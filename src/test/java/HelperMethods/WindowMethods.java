@@ -18,7 +18,7 @@ public class WindowMethods {
         System.out.println("Tabul curent are URL-ul " + webDriver.getCurrentUrl());
     }
 
-    public void closeCurentTabWindow (){
+    public void closeCurrentTabWindow (){
         webDriver.close();
     }
 }
