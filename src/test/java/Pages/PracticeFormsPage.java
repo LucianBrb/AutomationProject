@@ -142,7 +142,7 @@ public class PracticeFormsPage extends BasePage {
         Assert.assertEquals(valuesFields.get(3).getText(), mobileNoFieldValue);
 
         Assert.assertEquals(labelFields.get(4).getText(), "Date of Birth");
-        // Assert.assertEquals(valuesFields.get(4).getText(), dobField );
+        //Assert.assertEquals(valuesFields.get(4).getText(), dobField );
 
         Assert.assertEquals(labelFields.get(5).getText(), "Subjects");
         Assert.assertEquals(valuesFields.get(5).getText(), subjectValue);
