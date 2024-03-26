@@ -1,8 +1,10 @@
 package Tests;
 import HelperMethods.ElementMethods;
+import ObjectData.WebTableObject;
 import Pages.FormsPage;
 import Pages.HomePage;
 import Pages.PracticeFormsPage;
+import PropertyUtility.PropertyUtility;
 import SharedData.SharedData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,11 +15,13 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
-public class PracticeFormTest extends SharedData {
+public class PracticeFormsTest extends SharedData {
 
 
     @Test
     public void metodaTest() {
+        PropertyUtility propertyUtility = new PropertyUtility("practiceFormData");
+        practiceFormsObject = new PracticeFormsObject(propertyUtility.getAllData());
 
         HomePage homePage = new HomePage(getWebDriver());
         homePage.navigateToFormsPage();
