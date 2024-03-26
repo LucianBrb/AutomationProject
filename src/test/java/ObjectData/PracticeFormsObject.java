@@ -3,26 +3,30 @@ package ObjectData;
 import java.util.List;
 import java.util.Map;
 
-public class PracticeFormObject extends GeneralObject{
+public class PracticeFormsObject extends GeneralObject {
     private String firstNameFieldValue;
     private String lastNameFieldValue;
     private String emailFieldValue;
     private String genderValue;
     private String mobileNoFieldValue;
-    private String subjectValue;
+    private String dobMonthValue;
+    private String yearValue;
+    private String dayValue;
+    private String userSubjectsValue;
     private List<String> hobbies;
     private String filePath;
-    private String adressValue;
+    private String addressValue;
     private String stateLoc;
     private String cityLoc;
 
-    public PracticeFormObject (Map<String,String> testData){
-        prepareObject(testData);
 
+    public PracticeFormsObject(Map<String, String> testData) {
+        prepareObject(testData);
     }
-    private void prepareObject (Map<String,String> testData){
-        for (String key: testData.keySet()){
-            switch (key){
+
+    private void prepareObject(Map<String, String> testData) {
+        for (String key : testData.keySet()) {
+            switch (key) {
                 case "firstNameFieldValue":
                     setFirstNameFieldValue(testData.get(key));
                     break;
@@ -38,18 +42,26 @@ public class PracticeFormObject extends GeneralObject{
                 case "mobileNoFieldValue":
                     setMobileNoFieldValue(testData.get(key));
                     break;
-                case "subjectValue":
-                    setSubjectValue(testData.get(key));
+                case "dobMonthValue":
+                    setDobMonthValue(testData.get(key));
+                    break;
+                case "yearValue":
+                    setYearValue(testData.get(key));
+                    break;
+                case "dayValue":
+                    setDayValue(testData.get(key));
+                    break;
+                case "userSubjectsValue":
+                    setUserSubjectsValue(testData.get(key));
                     break;
                 case "hobbies":
-                    hobbies= getPreparedValue(testData.get(key));
-                    setHobbies(testData.get(key));
+                    hobbies = getPreparedValue(testData.get(key));
                     break;
                 case "filePath":
                     setFilePath(testData.get(key));
                     break;
-                case "adressValue":
-                    setAdressValue(testData.get(key));
+                case "addressValue":
+                    setAddressValue(testData.get(key));
                     break;
                 case "stateLoc":
                     setStateLoc(testData.get(key));
@@ -57,10 +69,66 @@ public class PracticeFormObject extends GeneralObject{
                 case "cityLoc":
                     setCityLoc(testData.get(key));
                     break;
-
             }
         }
     }
+
+    public String getFirstNameFieldValue() {
+        return firstNameFieldValue;
+    }
+
+    public String getLastNameFieldValue() {
+        return lastNameFieldValue;
+    }
+
+    public String getEmailFieldValue() {
+        return emailFieldValue;
+    }
+
+    public String getGenderValue() {
+        return genderValue;
+    }
+
+    public String getMobileNoFieldValue() {
+        return mobileNoFieldValue;
+    }
+
+    public String getDobMonthValue() {
+        return dobMonthValue;
+    }
+
+    public String getYearValue() {
+        return yearValue;
+    }
+
+    public String getDayValue() {
+        return dayValue;
+    }
+
+    public String getUserSubjectsValue() {
+        return userSubjectsValue;
+    }
+
+    public List<String> getHobbies() {
+        return hobbies;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public String getAddressValue() {
+        return addressValue;
+    }
+
+    public String getStateLoc() {
+        return stateLoc;
+    }
+
+    public String getCityLoc() {
+        return cityLoc;
+    }
+
 
     public void setFirstNameFieldValue(String firstNameFieldValue) {
         this.firstNameFieldValue = firstNameFieldValue;
@@ -82,8 +150,20 @@ public class PracticeFormObject extends GeneralObject{
         this.mobileNoFieldValue = mobileNoFieldValue;
     }
 
-    public void setSubjectValue(String subjectValue) {
-        this.subjectValue = subjectValue;
+    public void setDobMonthValue(String dobMonthValue) {
+        this.dobMonthValue = dobMonthValue;
+    }
+
+    public void setYearValue(String yearValue) {
+        this.yearValue = yearValue;
+    }
+
+    public void setDayValue(String dayValue) {
+        this.dayValue = dayValue;
+    }
+
+    public void setUserSubjectsValue(String userSubjectsValue) {
+        this.userSubjectsValue = userSubjectsValue;
     }
 
     public void setHobbies(List<String> hobbies) {
@@ -94,8 +174,8 @@ public class PracticeFormObject extends GeneralObject{
         this.filePath = filePath;
     }
 
-    public void setAdressValue(String adressValue) {
-        this.adressValue = adressValue;
+    public void setAddressValue(String addressValue) {
+        this.addressValue = addressValue;
     }
 
     public void setStateLoc(String stateLoc) {
@@ -106,4 +186,3 @@ public class PracticeFormObject extends GeneralObject{
         this.cityLoc = cityLoc;
     }
 }
-de completat -rectificat
