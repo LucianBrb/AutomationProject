@@ -1,33 +1,33 @@
 package Tests;
-
-import HelperMethods.AlertMethods;
-import HelperMethods.ElementMethods;
+import ObjectData.AlerteTestObject;
+import ObjectData.PracticeFormsObject;
 import Pages.AlertPage;
 import Pages.AlertWindowFramePage;
-import Pages.AlertWindowFramePage;
 import Pages.HomePage;
+import PropertyUtility.PropertyUtility;
 import SharedData.SharedData;
-import org.openqa.selenium.*;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.List;
-
 public class AlerteTest extends SharedData {
     @Test
-    public void alertMethod(){
-        ElementMethods elementMethods = new ElementMethods(getWebDriver());
-        AlertMethods alertMethods = new AlertMethods(getWebDriver());
+    public void windowMethod() {
+
+        PropertyUtility propertyUtility = new PropertyUtility("AlerteTestData");
+        AlerteTestObject alerteTestObject = new AlerteTestObject(propertyUtility.getAllData());
+
+
         HomePage homePage = new HomePage(getWebDriver());
         homePage.navigateToAlertFrameWindowPage();
+
         AlertWindowFramePage alertWindowFramePage = new AlertWindowFramePage(getWebDriver());
         alertWindowFramePage.navigateToAlertPage();
-        WebElement framesField= getWebDriver().findElement(By.xpath("//span[text()='Alerts']"));
-        elementMethods.clickElement(framesField);
+
         AlertPage alertPage = new AlertPage(getWebDriver());
-        alertPage.acceptAlert();
+
+        alertPage.dealWithAcceptAlert();
         alertPage.dealWithDelayAlert();
-        alertPage.dealWithPromptBtn("Test");
+        alertPage.dealWithCancelButton();
+        alertPage.dealWithPromptButton(alerteTestObject);
+    }
 
 
 //        WebElement clickMeBtn = getWebDriver().findElement(By.id("alertButton"));
@@ -56,5 +56,5 @@ public class AlerteTest extends SharedData {
 //
 //        Assert.assertEquals(alertText.get(3).getText(), "On button click, prompt box will appear");
 //        Assert.assertEquals(alertConfirmation.get(1).getText(), "You entered Test");
-    }
+
 }

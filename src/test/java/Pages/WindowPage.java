@@ -13,6 +13,8 @@ public class WindowPage extends BasePage{
     private WebElement newTabButton;
     @FindBy(id = "windowButton")
     private WebElement newWindowButton;
+    @FindBy(id = "messageWindowButton")
+    private WebElement newWindowMsgButton;
 
     public void interactWithTabBrowser(){
         elementMethods.clickElement(newTabButton);
@@ -27,5 +29,12 @@ public class WindowPage extends BasePage{
         windowMethods.closeCurrentTabWindow();
         windowMethods.switchSpecificTabWindow(0);
     }
+//    public void interactWithNewWindowMsgButton(){
+//
+//        elementMethods.clickElement(newWindowMsgButton);
+//        windowMethods.switchSpecificTabWindow(1);//sample window
+//        windowMethods.closeCurrentTabWindow();
+//        windowMethods.switchSpecificTabWindow(0);//browser window
+//    }
 
 }

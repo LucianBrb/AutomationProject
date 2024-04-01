@@ -29,5 +29,6 @@ public class WindowTest extends SharedData {
         WindowPage windowPage = new WindowPage(getWebDriver());
         windowPage.interactWithTabBrowser();
         windowPage.interactNewWindow();
+//        windowPage.interactWithNewWindowMsgButton();
     }
 }

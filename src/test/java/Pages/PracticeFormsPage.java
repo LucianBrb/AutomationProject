@@ -167,7 +167,7 @@ public class PracticeFormsPage extends BasePage {
         elementMethods.validateElementText(labelFields.get(6),"Hobbies");
 //        Assert.assertEquals(labelFields.get(6).getText(), "Hobbies");
         for (Integer i = 0; i < practiceFormsObject.getHobbies().size(); i++) {
-            //elementMethods.validateElementText(valuesFields.get(6),practiceFormsObject.getHobbies().get(i)+", "+practiceFormsObject.getHobbies().get(i)) ;
+            //elementMethods.validateElementText(valuesFields.get(6),practiceFormsObject.getHobbies().get(0));
             Assert.assertTrue(valuesFields.get(6).getText().contains(practiceFormsObject.getHobbies().get(i)));
         }
 
