@@ -15,7 +15,6 @@ public class ChromeService implements BrowserService {
     @Override
     public void openBrowser(Map<String,String> testData) {
        //aceasta metoda are ca scop sa deschida un Chorme cu configurarile noastre
-        PropertyUtility propertyUtility = new PropertyUtility("atfData");
 
        ChromeOptions options = (ChromeOptions) getBrowserOptions(testData);
        webDriver= new ChromeDriver(options);
@@ -28,6 +27,7 @@ public class ChromeService implements BrowserService {
     public Object getBrowserOptions(Map<String, String> testData) {
         //configuram optiunile pentru browserul nostru
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments(testData.get("gpu"));
         chromeOptions.addArguments(testData.get("infobars"));
         chromeOptions.addArguments(testData.get("extensions"));
         chromeOptions.addArguments(testData.get("sandbox"));

@@ -21,8 +21,7 @@ public class BrowserFactory {
         System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
         System.out.println(browser);
 
-
-        //dupa ce am aflat pe ce enviroment treuie sa rulez, deschid browserul dorit
+        //dupa ce am aflat pe ce enviroment trebuie sa rulez, deschid browserul dorit
         switch (browser){
             case "chrome":
                 ChromeService chromeService = new ChromeService();

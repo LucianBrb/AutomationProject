@@ -17,8 +17,8 @@ public class EdgeService implements BrowserService {
     @Override
     public void openBrowser(Map<String, String> testData) {
         //aceasta metoda are ca scop sa deschida un Chorme cu configurarile noastre
-        PropertyUtility propertyUtility =new PropertyUtility("atfData");
-        EdgeOptions options = (EdgeOptions) getBrowserOptions(propertyUtility.getAllData());
+
+        EdgeOptions options = (EdgeOptions) getBrowserOptions(testData);
         webDriver= new EdgeDriver();
         webDriver.manage().window().maximize();
         webDriver.get(testData.get("url"));
