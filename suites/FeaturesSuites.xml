@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Features Suite" >
+    <test name="Features Suite" >
+        <packages><classes>
+            <class name = "Tests.AlerteTest"/>
+            <class name = "Tests.FrameTest"/>
+            <class name = "Tests.WindowTest"/>
+        </classes>
+
+
+        </packages>
+    </test>
+</suite>
