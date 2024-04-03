@@ -19,7 +19,7 @@ public class EdgeService implements BrowserService {
         //aceasta metoda are ca scop sa deschida un Chorme cu configurarile noastre
 
         EdgeOptions options = (EdgeOptions) getBrowserOptions(testData);
-        webDriver= new EdgeDriver();
+        webDriver= new EdgeDriver(options);
         webDriver.manage().window().maximize();
         webDriver.get(testData.get("url"));
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
