@@ -1,7 +1,7 @@
 
 package Pages;
-import ObjectData.AlerteTestObject;
-import org.openqa.selenium.By;
+import ObjectData.AlertObject;
+import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,22 +24,41 @@ public class AlertPage extends BasePage {
 
     public void dealWithAcceptAlert() {
         elementMethods.clickElement(buttonAlerts);
+        LoggerUtility.infoTest("The user clicks on button alert");
         alertMethods.acceptAlert();
+        LoggerUtility.infoTest("The user accept the alert");
+
     }
     public void dealWithDelayAlert (){
         elementMethods.clickElement(buttonAlertsDelay);
+        LoggerUtility.infoTest("The user clicks on timer field");
         alertMethods.waitForAlert();
         alertMethods.acceptAlert();
+        LoggerUtility.infoTest("The user accepts the alert");
+
+    }
+    public void dealWithPromptButton (AlertObject alertObject) {
+        elementMethods.clickElement(buttonPrompt);
+        LoggerUtility.infoTest("The user clicks on buttonFiled element");
+
+        alertMethods.fillAlert(alertObject.getInputAlert());
+        LoggerUtility.infoTest("The user fills the alert with following text"+alertObject.getInputAlert());
+
+        elementMethods.validateElementText(fourthAlertResult,"You entered " + alertObject.getInputAlert());
+        LoggerUtility.infoTest("The user validate element text");
+
     }
     public void dealWithCancelButton () {
         elementMethods.clickElement(thirdAlertButton);
+        LoggerUtility.infoTest("The user clicks on confirm Alert");
+
         alertMethods.cancelAlert();
+        LoggerUtility.infoTest("The user clicks on cancel alert");
+
         elementMethods.validateElementText(thirdAlertResult,"You selected Cancel");
+        LoggerUtility.infoTest("The user validates the cancel message");
+
     }
-    public void dealWithPromptButton (AlerteTestObject alerteTestObject) {
-        elementMethods.clickElement(buttonPrompt);
-        alertMethods.fillAlert(alerteTestObject.getInputAlert());
-        elementMethods.validateElementText(fourthAlertResult,"You entered " + alerteTestObject.getInputAlert());
-    }
+
 }
  

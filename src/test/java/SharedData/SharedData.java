@@ -1,30 +1,26 @@
 package SharedData;
 
 import SharedData.browser.BrowserFactory;
-import SharedData.browser.BrowserService;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.time.Duration;
-
 public class SharedData {
-    private WebDriver webDriver;
+    private WebDriver getwebDriver;
 
     @BeforeMethod
     public void prepareDriver() {
-        webDriver = new BrowserFactory().getBrowserInstance();
+        getwebDriver = new BrowserFactory().getBrowserInstance();
 
     }
-    public WebDriver getWebDriver(){
-       return webDriver;
-    }
-
 
     @AfterMethod
-    public void clearData() {
+    public void clearDriver() {
         //webDriver.quit();
+    }
+
+    public WebDriver getGetwebDriver(){
+        return getwebDriver;
     }
 
 }

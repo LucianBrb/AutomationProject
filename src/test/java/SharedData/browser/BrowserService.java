@@ -8,6 +8,4 @@ public interface BrowserService {
 
     Object getBrowserOptions(Map<String,String> testData);
 
-
-
 }

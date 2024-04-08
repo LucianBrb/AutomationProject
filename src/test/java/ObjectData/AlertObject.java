@@ -2,10 +2,10 @@ package ObjectData;
 
 import java.util.Map;
 
-public class AlerteTestObject extends GeneralObject{
+public class AlertObject extends GeneralObject{
     private String inputAlert;
 
-    public AlerteTestObject (Map<String,String> testData){
+    public AlertObject(Map<String,String> testData){
         prepareObject(testData);
 
     }

@@ -7,9 +7,6 @@ import PropertyUtility.PropertyUtility;
 import SharedData.SharedData;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class PracticeFormsTest extends SharedData {
 
 
@@ -18,13 +15,13 @@ public class PracticeFormsTest extends SharedData {
         PropertyUtility propertyUtility = new PropertyUtility("practiceFormsData");
         PracticeFormsObject practiceFormsObject= new PracticeFormsObject(propertyUtility.getAllData());
 
-        HomePage homePage = new HomePage(getWebDriver());
+        HomePage homePage = new HomePage(getGetwebDriver());
         homePage.navigateToFormsPage();
 
-        FormsPage formsPage = new FormsPage(getWebDriver());
+        FormsPage formsPage = new FormsPage(getGetwebDriver());
         formsPage.navigateToPracticeForm();
 
-        PracticeFormsPage practiceFormsPage = new PracticeFormsPage(getWebDriver());
+        PracticeFormsPage practiceFormsPage = new PracticeFormsPage(getGetwebDriver());
 
         practiceFormsPage.fillEntireForm(practiceFormsObject);
         practiceFormsPage.validatePracticeFormTable(practiceFormsObject);

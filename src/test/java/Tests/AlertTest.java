@@ -1,32 +1,31 @@
 package Tests;
-import ObjectData.AlerteTestObject;
-import ObjectData.PracticeFormsObject;
+import ObjectData.AlertObject;
 import Pages.AlertPage;
 import Pages.AlertWindowFramePage;
 import Pages.HomePage;
 import PropertyUtility.PropertyUtility;
-import SharedData.SharedData;
+import SharedData.Hooks;
 import org.testng.annotations.Test;
-public class AlerteTest extends SharedData {
+public class AlertTest extends Hooks {
     @Test
     public void windowMethod() {
 
-        PropertyUtility propertyUtility = new PropertyUtility("AlerteTestData");
-        AlerteTestObject alerteTestObject = new AlerteTestObject(propertyUtility.getAllData());
+        PropertyUtility propertyUtility = new PropertyUtility("AlertTestData");
+        AlertObject alertObject = new AlertObject(propertyUtility.getAllData());
 
 
-        HomePage homePage = new HomePage(getWebDriver());
+        HomePage homePage = new HomePage(getGetwebDriver());
         homePage.navigateToAlertFrameWindowPage();
 
-        AlertWindowFramePage alertWindowFramePage = new AlertWindowFramePage(getWebDriver());
+        AlertWindowFramePage alertWindowFramePage = new AlertWindowFramePage(getGetwebDriver());
         alertWindowFramePage.navigateToAlertPage();
 
-        AlertPage alertPage = new AlertPage(getWebDriver());
+        AlertPage alertPage = new AlertPage(getGetwebDriver());
 
         alertPage.dealWithAcceptAlert();
         alertPage.dealWithDelayAlert();
         alertPage.dealWithCancelButton();
-        alertPage.dealWithPromptButton(alerteTestObject);
+        alertPage.dealWithPromptButton(alertObject);
     }
 
 

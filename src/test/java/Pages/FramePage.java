@@ -1,5 +1,6 @@
 package Pages;
 
+import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,12 +16,19 @@ public class FramePage extends BasePage{
 
     public void dealWithIFrame(){
         frameMethods.switchSpecificIframe("frame1");
+        LoggerUtility.infoTest("The user switch to a specific Iframe");
+
         System.out.println(frameElement.getText());
-        //specificam sa revina la frame-ul curent
+        LoggerUtility.infoTest("The user interacts with the text of frameElement");
+
         frameMethods.switchToParentFrame();
+        LoggerUtility.infoTest("The user switch to default frame");
 
         frameMethods.switchSpecificIframe("frame2");
+        LoggerUtility.infoTest("The user switch to a specific Iframe");
+
         System.out.println(frameElement.getText());
+        LoggerUtility.infoTest("The user interacts with the text of frameElement");
     }
 }
 
