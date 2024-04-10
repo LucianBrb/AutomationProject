@@ -1,6 +1,7 @@
 package SharedData;
 
 import loggerUtility.LoggerUtility;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -19,7 +20,11 @@ public class Hooks extends SharedData{
     }
     @AfterMethod
 
-    public void clearEnvironment (){
+    public void clearEnvironment (ITestResult result){
+        if (!result.isSuccess())
+        {
+            LoggerUtility.errorTest(result.getThrowable().getMessage());
+        }
         clearDriver();
         LoggerUtility.infoTest("The driver is close with success");
         LoggerUtility.finishTestCase(testName);
