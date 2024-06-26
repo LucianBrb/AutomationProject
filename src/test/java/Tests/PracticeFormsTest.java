@@ -1,8 +1,8 @@
 package Tests;
-import ObjectData.PracticeFormsObject;
+import ObjectData.PracticeFormObject;
 import Pages.FormsPage;
 import Pages.HomePage;
-import Pages.PracticeFormsPage;
+import Pages.PracticeFormPage;
 import PropertyUtility.PropertyUtility;
 import SharedData.SharedData;
 import org.testng.annotations.Test;
@@ -13,7 +13,7 @@ public class PracticeFormsTest extends SharedData {
     @Test
     public void metodaTest() {
         PropertyUtility propertyUtility = new PropertyUtility("practiceFormsData");
-        PracticeFormsObject practiceFormsObject= new PracticeFormsObject(propertyUtility.getAllData());
+        PracticeFormObject practiceFormsObject= new PracticeFormObject(propertyUtility.getAllData());
 
         HomePage homePage = new HomePage(getGetwebDriver());
         homePage.navigateToFormsPage();
@@ -21,7 +21,7 @@ public class PracticeFormsTest extends SharedData {
         FormsPage formsPage = new FormsPage(getGetwebDriver());
         formsPage.navigateToPracticeForm();
 
-        PracticeFormsPage practiceFormsPage = new PracticeFormsPage(getGetwebDriver());
+        PracticeFormPage practiceFormsPage = new PracticeFormPage(getGetwebDriver());
 
         practiceFormsPage.fillEntireForm(practiceFormsObject);
         practiceFormsPage.validatePracticeFormTable(practiceFormsObject);

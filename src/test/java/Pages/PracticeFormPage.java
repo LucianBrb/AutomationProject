@@ -1,6 +1,8 @@
 package Pages;
 
-import ObjectData.PracticeFormsObject;
+import ObjectData.PracticeFormObject;
+import Database.Queries.PracticeFormTable;
+import loggerUtility.LoggerUtility;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,9 +12,12 @@ import org.testng.Assert;
 import java.util.List;
 import java.io.File;
 
-public class PracticeFormsPage extends BasePage {
-    public PracticeFormsPage(WebDriver webDriver) {
+public class PracticeFormPage extends BasePage {
+
+    private PracticeFormTable practiceFormTable;
+    public PracticeFormPage (WebDriver webDriver) {
         super(webDriver);
+        practiceFormTable = new PracticeFormTable();
     }
 
     @FindBy(id = "firstName")
@@ -127,7 +132,7 @@ public class PracticeFormsPage extends BasePage {
         elementMethods.clickElemForce(submit);
     }
 
-    public void validatePracticeFormTable(PracticeFormsObject practiceFormsObject) {
+    public void validatePracticeFormTable(PracticeFormObject practiceFormsObject) {
         //validate firstName and lastName
         elementMethods.validateElementText(labelFields.get(0), "Student Name");
         elementMethods.validateElementText(valuesFields.get(0), practiceFormsObject.getFirstNameFieldValue() + " " + practiceFormsObject.getLastNameFieldValue());
@@ -191,19 +196,21 @@ public class PracticeFormsPage extends BasePage {
 
     }
 
-    public void fillEntireForm(PracticeFormsObject practiceFormsObject) {
-        fillFirstName(practiceFormsObject.getFirstNameFieldValue());
-        fillLastName(practiceFormsObject.getLastNameFieldValue());
-        fillEmailField(practiceFormsObject.getEmailFieldValue());
-        fillMobileNoField(practiceFormsObject.getMobileNoFieldValue());
-        pickBirthDate(practiceFormsObject.getDobMonthValue(), practiceFormsObject.getYearValue(), practiceFormsObject.getDayValue());
-        pickGender(practiceFormsObject.getGenderValue());
-        pickHobbies(practiceFormsObject.getHobbies());
-        pickSubjects(practiceFormsObject.getUserSubjectsValue());
-        uploadPicture(practiceFormsObject.getFilePath());
-        pickAddress(practiceFormsObject.getAddressValue());
-        pickState(practiceFormsObject.getStateLoc());
-        pickCity(practiceFormsObject.getCityLoc());
+    public void fillEntireForm(PracticeFormObject practiceFormObject) {
+        fillFirstName(practiceFormObject.getFirstNameFieldValue());
+        fillLastName(practiceFormObject.getLastNameFieldValue());
+        fillEmailField(practiceFormObject.getEmailFieldValue());
+        fillMobileNoField(practiceFormObject.getMobileNoFieldValue());
+        pickBirthDate(practiceFormObject.getDobMonthValue(), practiceFormObject.getYearValue(), practiceFormObject.getDayValue());
+        pickGender(practiceFormObject.getGenderValue());
+        pickHobbies(practiceFormObject.getHobbies());
+        pickSubjects(practiceFormObject.getUserSubjectsValue());
+        uploadPicture(practiceFormObject.getFilePath());
+        pickAddress(practiceFormObject.getAddressValue());
+        pickState(practiceFormObject.getStateLoc());
+        pickCity(practiceFormObject.getCityLoc());
         clickSubmit();
+        practiceFormTable.insertIntoPracticeFormTable(practiceFormObject);
+        LoggerUtility.infoTest("All data inserted successfully in the table alertTable");
     }
 }

@@ -3,7 +3,7 @@ package ObjectData;
 import java.util.List;
 import java.util.Map;
 
-public class PracticeFormsObject extends GeneralObject {
+public class PracticeFormObject extends GeneralObject {
     private String firstNameFieldValue;
     private String lastNameFieldValue;
     private String emailFieldValue;
@@ -20,7 +20,7 @@ public class PracticeFormsObject extends GeneralObject {
     private String cityLoc;
 
 
-    public PracticeFormsObject(Map<String, String> testData) {
+    public PracticeFormObject(Map<String, String> testData) {
         prepareObject(testData);
     }
 

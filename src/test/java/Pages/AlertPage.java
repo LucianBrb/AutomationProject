@@ -1,13 +1,20 @@
 
 package Pages;
 import ObjectData.AlertObject;
+import Database.Queries.AlertTable;
 import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 public class AlertPage extends BasePage {
+
+    //definim un obiect de tipul tabelului AlerTable
+    private AlertTable alertTable;
+
+
     public AlertPage(WebDriver webDriver) {
         super(webDriver);
+        alertTable = new AlertTable();
     }
     @FindBy(id = "alertButton")
     private WebElement buttonAlerts;
@@ -46,6 +53,8 @@ public class AlertPage extends BasePage {
 
         elementMethods.validateElementText(fourthAlertResult,"You entered " + alertObject.getInputAlert());
         LoggerUtility.infoTest("The user validate element text");
+        alertTable.insertIntoAlert(alertObject);
+        LoggerUtility.infoTest("All data inserted successfully in the table AlertTable");
 
     }
     public void dealWithCancelButton () {

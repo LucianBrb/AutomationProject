@@ -9,7 +9,6 @@ public class AlertObject extends GeneralObject{
         prepareObject(testData);
 
     }
-
     private void prepareObject (Map<String,String> testData){
         for (String key: testData.keySet()){
             switch (key) {
